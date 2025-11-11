@@ -54,7 +54,7 @@ fun TimerScreen(viewModel: TimerViewModel = viewModel()) {
 
         // Control buttons
         Row {
-            Button(onClick = { /* show time picker */ }) {
+            Button(onClick = { viewModel.setTime(120000L) }) {
                 Text("Set Time")
             }
 

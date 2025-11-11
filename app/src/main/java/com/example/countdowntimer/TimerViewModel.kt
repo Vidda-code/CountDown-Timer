@@ -18,13 +18,14 @@ class TimerViewModel : ViewModel() {
     private val _isRunning = mutableStateOf(false)
     val isRunning: State<Boolean> = _isRunning
 
-//    init {
-//        _time.value = 0
-//        _isRunning.value = false
-//    }
+    fun setTime(durationMillis: Long) {
+        if (!_isRunning.value) {
+            _time.value = durationMillis
+        }
+    }
 
     fun startTimer(durationMillis: Long) {
-        if (_isRunning.value) return
+        if (_isRunning.value || durationMillis == 0L) return
 
         _time.value = durationMillis
         _isRunning.value = true
